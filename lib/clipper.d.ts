@@ -121,9 +121,9 @@ export class PolyNode {
 export class ClipperOffset {
   constructor(miterLimit?: number, roundPrecision?: number);
   AddPath(path: ArrayLike<IntPoint>, jointype: JoinType, endtype: EndType): void;
-  AddPaths(paths: ArrayLike<IntPoint>, jointype: JoinType, endtype: EndType): void;
+  AddPaths(paths: ArrayLike<Path>, jointype: JoinType, endtype: EndType): void;
   Clear(): void;
-  Execute(solution: ArrayLike<IntPoint>|PolyTree, delta: number): void;
+  Execute(solution: ArrayLike<Path>|PolyTree, delta: number): void;
   public ArcTolerance: number;
   public MiterLimit: number;
 }
