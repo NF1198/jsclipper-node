@@ -60,23 +60,23 @@ export class ClipperBase {
 
 export class Clipper extends ClipperBase {
   constructor(initOptions?: InitOptions);
-  Area(poly: Path): number;
-  CleanPolygon(path: Path, distance: number): Path;
-  CleanPolygons(polys: Paths, distance: number): Paths;
-  ClosedPathsFromPolyTree(polytree: PolyTree): Paths;
-  Execute(cliptype: ClipType, solution: ArrayLike<Path> | PolyTree, subjFillType?: PolyFillType, clipFillType?: PolyFillType);
-  GetBounds(paths: Paths): IntRect;
-  MinkowskiDiff(poly: Path, path: Path, isClosed: boolean): Paths;
-  MinkowskiSum(pattern: Path, path: Path, pathIsClosed: boolean): Paths;
-  MinkowskiSum(pattern: Path, path: Path, pathFillType: PolyFillType, pathIsClosed: boolean): Paths;
-  OpenPathsFromPolyTree(polytree: PolyTree): Paths;
-  Orientation(poly: Path): boolean;
-  PointInPolygon(pt: IntPoint, poly: Path): boolean;
-  PolyTreeToPaths(polytree: PolyTree): Paths;
-  ReversePath(path: Path): void;
-  ReversePaths(paths: Paths): void;
-  SimplifyPolygon(poly: Path, fillType: PolyFillType.pftEvenOdd);
-  SimplifyPolygons(polys: Paths, fillType: PolyFillType.pftEvenOdd);
+  static Area(poly: Path): number;
+  static CleanPolygon(path: Path, distance: number): Path;
+  static CleanPolygons(polys: Paths, distance: number): Paths;
+  static ClosedPathsFromPolyTree(polytree: PolyTree): Paths;
+  Execute(cliptype: ClipType, solution: ArrayLike<Path> | PolyTree, subjFillType?: PolyFillType, clipFillType?: PolyFillType): boolean;
+  static GetBounds(paths: Paths): IntRect;
+  static MinkowskiDiff(poly: Path, path: Path, isClosed: boolean): Paths;
+  static MinkowskiSum(pattern: Path, path: Path, pathIsClosed: boolean): Paths;
+  static MinkowskiSum(pattern: Path, path: Path, pathFillType: PolyFillType, pathIsClosed: boolean): Paths;
+  static OpenPathsFromPolyTree(polytree: PolyTree): Paths;
+  static Orientation(poly: Path): boolean;
+  static PointInPolygon(pt: IntPoint, poly: Path): boolean;
+  static PolyTreeToPaths(polytree: PolyTree): Paths;
+  static ReversePath(path: Path): void;
+  static ReversePaths(paths: Paths): void;
+  static SimplifyPolygon(poly: Path, fillType: PolyFillType.pftEvenOdd);
+  static SimplifyPolygons(polys: Paths, fillType: PolyFillType.pftEvenOdd);
 
   public PreserveCollinear: boolean;
   public ReverseSolution: boolean;
