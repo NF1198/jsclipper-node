@@ -4,24 +4,35 @@
 // Definitions:
 // Definitions author: Nicholas Folse <nickfolse@gmail.com>
 
+export interface IntPoint {
+  X: number;
+  Y: number;
+}
+
 export class ClipperBase {
   AddPath(pg: Path, polytype: PolyType, closed: boolean): boolean;
-  AddPaths(): boolean;
+  AddPaths(paths: Paths, polytype: PolyType, close: boolean): boolean;
   Clear(): void;
 }
 
 export class Path implements ArrayLike<IntPoint> {
-  public readonly length: number;
+  readonly length: number;
   [index: number]: IntPoint;
+  map(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => any, thisArg?: any): any[]
+  forEach(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => void, thisArg?: any): void
+  push(point: IntPoint): number;
 }
 
 export class Paths implements ArrayLike<Path> {
-  public readonly length: number;
+  readonly length: number;
   [index: number]: Path;
+  map(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => any, thisArg?: any): any[]
+  forEach(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => void, thisArg?: any): void
+  push(path: Path): number;
 }
 
-export enum ClipType  {
-  ctIntersection =  0,
+export enum ClipType {
+  ctIntersection = 0,
   ctUnion = 1,
   ctDifference = 2,
   ctXor = 3
@@ -60,12 +71,12 @@ export enum InitOptions {
 }
 
 export class Clipper extends ClipperBase {
-  constructor(initOptions? : InitOptions);
+  constructor(initOptions?: InitOptions);
   Area(poly: Path): number;
   CleanPolygon(path: Path, distance: number): Path;
   CleanPolygons(polys: Paths, distance: number): Paths;
   ClosedPathsFromPolyTree(polytree: PolyTree): Paths;
-  Execute(cliptype: ClipType, solution: ArrayLike<Path>|PolyTree, subjFillType?: PolyFillType, clipFillType?: PolyFillType);
+  Execute(cliptype: ClipType, solution: ArrayLike<Path> | PolyTree, subjFillType?: PolyFillType, clipFillType?: PolyFillType);
   GetBounds(paths: Paths): IntRect;
   MinkowskiDiff(poly: Path, path: Path, isClosed: boolean): Paths;
   MinkowskiSum(pattern: Path, path: Path, pathIsClosed: boolean): Paths;
@@ -82,14 +93,6 @@ export class Clipper extends ClipperBase {
   public PreserveCollinear: boolean;
   public ReverseSolution: boolean;
   public StrictlySimple: boolean;
-}
-
-export class IntPoint {
-  public X: number;
-  public Y: number;
-  constructor(X: number, Y: number);
-  constructor();
-  constructor(point: IntPoint);
 }
 
 export class IntRect {
@@ -123,7 +126,7 @@ export class ClipperOffset {
   AddPath(path: ArrayLike<IntPoint>, jointype: JoinType, endtype: EndType): void;
   AddPaths(paths: ArrayLike<Path>, jointype: JoinType, endtype: EndType): void;
   Clear(): void;
-  Execute(solution: ArrayLike<Path>|PolyTree, delta: number): void;
+  Execute(solution: ArrayLike<Path> | PolyTree, delta: number): void;
   public ArcTolerance: number;
   public MiterLimit: number;
 }
