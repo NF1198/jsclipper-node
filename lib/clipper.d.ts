@@ -15,21 +15,25 @@ export class ClipperBase {
   Clear(): void;
 }
 
-export class Path implements ArrayLike<IntPoint> {
-  readonly length: number;
-  [index: number]: IntPoint;
-  map(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => any, thisArg?: any): any[]
-  forEach(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => void, thisArg?: any): void
-  push(point: IntPoint): number;
-}
+export type Path = IntPoint[];
 
-export class Paths implements ArrayLike<Path> {
-  readonly length: number;
-  [index: number]: Path;
-  map(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => any, thisArg?: any): any[]
-  forEach(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => void, thisArg?: any): void
-  push(path: Path): number;
-}
+export type Paths = Path[];
+
+// export class Path implements ArrayLike<IntPoint> {
+//   readonly length: number;
+//   [index: number]: IntPoint;
+//   map(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => any, thisArg?: any): any[]
+//   forEach(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => void, thisArg?: any): void
+//   push(point: IntPoint): number;
+// }
+
+// export class Paths implements ArrayLike<Path> {
+//   readonly length: number;
+//   [index: number]: Path;
+//   map(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => any, thisArg?: any): any[]
+//   forEach(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => void, thisArg?: any): void
+//   push(path: Path): number;
+// }
 
 export enum ClipType {
   ctIntersection = 0,
