@@ -123,8 +123,7 @@ export class ClipperOffset {
   AddPath(path: ArrayLike<IntPoint>, jointype: JoinType, endtype: EndType): void;
   AddPaths(paths: ArrayLike<IntPoint>, jointype: JoinType, endtype: EndType): void;
   Clear(): void;
-  Execute(solution: ArrayLike<IntPoint>, delta: number): void;
-  Execute(polytree: PolyTree, delta: number): void;
+  Execute(solution: ArrayLike<IntPoint>|PolyTree, delta: number): void;
   public ArcTolerance: number;
   public MiterLimit: number;
 }
