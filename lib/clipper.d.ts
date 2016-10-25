@@ -9,31 +9,9 @@ export interface IntPoint {
   Y: number;
 }
 
-export class ClipperBase {
-  AddPath(pg: Path, polytype: PolyType, closed: boolean): boolean;
-  AddPaths(paths: Paths, polytype: PolyType, close: boolean): boolean;
-  Clear(): void;
-}
-
 export type Path = IntPoint[];
 
 export type Paths = Path[];
-
-// export class Path implements ArrayLike<IntPoint> {
-//   readonly length: number;
-//   [index: number]: IntPoint;
-//   map(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => any, thisArg?: any): any[]
-//   forEach(callback: (intPoint?: IntPoint, index?: number, array?: ArrayLike<IntPoint>) => void, thisArg?: any): void
-//   push(point: IntPoint): number;
-// }
-
-// export class Paths implements ArrayLike<Path> {
-//   readonly length: number;
-//   [index: number]: Path;
-//   map(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => any, thisArg?: any): any[]
-//   forEach(callback: (path?: Path, index?: number, array?: ArrayLike<Path>) => void, thisArg?: any): void
-//   push(path: Path): number;
-// }
 
 export enum ClipType {
   ctIntersection = 0,
@@ -72,6 +50,12 @@ export enum InitOptions {
   ioReverseSolution = 1,
   ioStrictlySimple = 2,
   ioPreserveCollinear = 4
+}
+
+export class ClipperBase {
+  AddPath(pg: Path, polytype: PolyType, closed: boolean): boolean;
+  AddPaths(paths: Paths, polytype: PolyType, close: boolean): boolean;
+  Clear(): void;
 }
 
 export class Clipper extends ClipperBase {
