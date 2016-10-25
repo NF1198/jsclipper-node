@@ -1,0 +1,17 @@
+{
+  "name": "jsclipper-node",
+  "version": "6.2.1",
+  "description": "Javascript Clipper 6.1.2.0 - with typings",
+  "main": "./lib/clipper.js",
+  "types": "./lib/index.d.ts",
+  "typings": "./lib/clipper.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clipper",
+    "jsclipper"
+  ],
+  "author": "nf1198 : https://github.com/NF1198",
+  "license": "BSL-1.0"
+}
