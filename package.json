@@ -1,6 +1,6 @@
 {
   "name": "jsclipper-node",
-  "version": "6.2.1",
+  "version": "1.0.0",
   "description": "Javascript Clipper 6.1.2.0 - with typings",
   "main": "./lib/clipper.js",
   "types": "./lib/index.d.ts",
@@ -12,6 +12,9 @@
     "clipper",
     "jsclipper"
   ],
-  "author": "nf1198 : https://github.com/NF1198",
-  "license": "BSL-1.0"
+  "author": "nf1198",
+  "license": "BSL-1.0",
+  "repository": {
+    "github": "https://github.com/NF1198/jsclipper-node"
+  }
 }
