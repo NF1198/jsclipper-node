@@ -11,10 +11,12 @@ Documentation:
 https://sourceforge.net/p/jsclipper/wiki/documentation/
 
 Installation:
+--------------------
 
     npm install https://github.com/NF1198/jsclipper-node --save
 
 Usage - TypeScript:
+--------------------
 
 ```javascript
 import ClipperLib = require('jsclipper-node');
