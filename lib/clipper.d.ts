@@ -120,9 +120,9 @@ export class ClipperOffset {
 }
 
 export namespace JS {
-  export function AreaOfPolygon(poly: ArrayLike<IntPoint>, scale: 1): number;
-  export function AreaOfPolygons(polys: ArrayLike<Path>, scale: 1): number;
-  export function BoundsOfPaths(paths: ArrayLike<Path>, scale: 1): IntRect;
+  export function AreaOfPolygon(poly: ArrayLike<IntPoint>, scale: number): number;
+  export function AreaOfPolygons(polys: ArrayLike<Path>, scale: number): number;
+  export function BoundsOfPaths(paths: ArrayLike<Path>, scale: number): IntRect;
   export function Clone(path: ArrayLike<IntPoint>): ArrayLike<IntPoint>;
   export function Clone(paths: ArrayLike<Path>): ArrayLike<Path>;
   export function Clean(path: ArrayLike<IntPoint>): ArrayLike<IntPoint>;
@@ -130,10 +130,10 @@ export namespace JS {
   export function Lighten(path: ArrayLike<IntPoint>, tolerance: number): ArrayLike<IntPoint>;
   export function PerimeterOfPath(path: ArrayLike<IntPoint>, closed: boolean, scale: 1): number;
   export function PerimeterOfPaths(paths: ArrayLike<Path>, closed: boolean, scale: 1): number;
-  export function ScaleDownPath(path: ArrayLike<IntPoint>, scale: 1): void;
-  export function ScaleDownPaths(paths: ArrayLike<Path>, scale: 1): void;
-  export function ScaleUpPath(path: ArrayLike<IntPoint>, scale: 1): void;
-  export function ScaleUpPaths(paths: ArrayLike<Path>, scale: 1): void;
+  export function ScaleDownPath(path: ArrayLike<IntPoint>, scale: number): void;
+  export function ScaleDownPaths(paths: ArrayLike<Path>, scale: number): void;
+  export function ScaleUpPath(path: ArrayLike<IntPoint>, scale: number): void;
+  export function ScaleUpPaths(paths: ArrayLike<Path>, scale: number): void;
 }
 
 export as namespace ClipperLib;
